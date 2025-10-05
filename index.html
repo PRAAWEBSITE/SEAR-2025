@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SEAR ESPORTS — Official Website</title>
+    <meta name="description" content="SEAR ESPORTS — Tim profesional esports. Divisi: PUBG Mobile, MLBB, Roblox. Official website." />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      :root{
+        --bg:#121214;
+        --panel:#1f1f23;
+        --muted:#9aa0a6;
+        --gold:#d4af37;
+        --accent:#b99b43;
+        --glass: rgba(255,255,255,0.04);
+        --radius:14px;
+        --maxw:1100px;
+      }
+
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        background: linear-gradient(180deg,var(--bg) 0%, #0f0f10 100%);
+        color:#e6e6e6;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+        line-height:1.45;
+      }
+
+      /* layout */
+      .wrap{max-width:var(--maxw);margin:0 auto;padding:18px}
+
+      /* header */
+      header.site-header{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+      .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+      .brand{display:flex;align-items:center;gap:12px}
+      .logo{width:54px;height:54px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--accent));font-family:Orbitron, sans-serif;font-weight:700;color:#0b0b0b}
+      .brand h1{font-size:16px;margin:0}
+      .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+      .nav-links{display:flex;gap:8px;align-items:center}
+      .nav-links a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;font-size:14px}
+      .nav-links a:hover{color:var(--gold);background:var(--glass)}
+      .cta{background:linear-gradient(90deg,var(--gold),var(--accent));color:#0b0b0b;padding:8px 12px;border-radius:10px;font-weight:600;text-decoration:none}
+
+      /* mobile menu */
+      .burger{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03);cursor:pointer}
+
+      /* HERO */
+      .hero{min-height:62vh;display:flex;align-items:center;padding:28px;border-radius:18px;overflow:hidden;margin:18px 0}
+      .hero .left{flex:1}
+      .hero h2{font-family:Orbitron, sans-serif;font-size:28px;margin:0 0 8px;color:var(--gold);letter-spacing:0.6px}
+      .hero p{color:var(--muted);margin:0 0 16px}
+      .hero .actions{display:flex;gap:10px}
+      .btn{padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+      .btn.primary{background:linear-gradient(90deg,var(--gold),var(--accent));color:#0b0b0b}
+      .btn.ghost{border:1px solid rgba(255,255,255,0.04);color:var(--muted);background:transparent}
+
+      .hero .right{flex:1;display:flex;align-items:center;justify-content:center}
+      .banner-card{width:100%;max-width:420px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:16px;padding:14px;border:1px solid rgba(255,255,255,0.03)}
+      .banner-card img{width:100%;border-radius:10px;display:block}
+
+      /* sections */
+      section.block{margin:18px 0}
+      .section-title{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+      .section-title h3{margin:0;color:var(--gold);font-size:18px}
+      .section-title p{margin:0;color:var(--muted);font-size:13px}
+
+      /* about */
+      .about-grid{display:grid;grid-template-columns:1fr;gap:12px}
+      .about-card{background:var(--panel);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+
+      /* divisions */
+      .grid-3{display:grid;grid-template-columns:1fr;gap:12px}
+      .card-division{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+      .card-division h4{margin:0 0 8px;color:var(--gold)}
+      .meta{font-size:13px;color:var(--muted)}
+
+      /* team */
+      .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+      .member{display:flex;gap:12px;align-items:center;background:var(--panel);padding:10px;border-radius:12px}
+      .avatar{width:64px;height:64px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,var(--gold),var(--accent));display:grid;place-items:center;font-weight:700}
+      .member h5{margin:0;font-size:15px}
+      .member p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+
+      /* news */
+      .news-list{display:grid;gap:10px}
+      .news-item{background:var(--panel);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+      .news-item h4{margin:0;color:var(--gold)}
+      .news-item p{color:var(--muted);margin:6px 0 0;font-size:13px}
+
+      /* contact */
+      .contact-grid{display:grid;grid-template-columns:1fr;gap:12px}
+      .form{background:var(--panel);padding:12px;border-radius:12px}
+      .form input,.form textarea{width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.04);color:inherit;margin-top:8px}
+
+      footer.site-footer{margin-top:28px;padding:18px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+
+      /* responsiveness */
+      @media(min-width:700px){
+        .hero{min-height:68vh;padding:36px}
+        .hero h2{font-size:40px}
+        .about-grid{grid-template-columns:1fr 1fr}
+        .grid-3{grid-template-columns:repeat(3,1fr)}
+        .team-grid{grid-template-columns:repeat(3,1fr)}
+        .nav-links{display:flex}
+      }
+
+      @media(max-width:699px){
+        .nav-links{display:none}
+      }
+
+      /* small utilities */
+      .muted{color:var(--muted)}
+      .small{font-size:13px}
+
+      /* scroll reveal */
+      .reveal{opacity:0;transform:translateY(14px);transition:all 560ms cubic-bezier(.2,.9,.25,1)}
+      .reveal.show{opacity:1;transform:none}
+
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap nav">
+        <div class="brand">
+          <div class="logo"imgsrc id="logoTxt">SEAR</div>
+          <div>
+            <h1>SEAR ESPORTS</h1>
+            <p>Official Team • Competitive & Community</p>
+          </div>
+        </div>
+
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#divisions">Divisi</a>
+          <a href="#team">Team</a>
+          <a href="#news">Berita</a>
+          <a href="#register">Pendaftaran</a>
+          <a href="#contact">Contact</a>
+          <a class="cta" href="#register">Daftar</a>
+        </nav>
+
+        <button class="burger" id="btnMenu" aria-label="Open menu">
+          <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="18" height="2" rx="1" fill="white"/><rect y="5" width="18" height="2" rx="1" fill="white"/><rect y="10" width="18" height="2" rx="1" fill="white"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- HERO / HOME -->
+      <section id="home" class="hero" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1602070064041-41b8d5a8d3b5?q=80&w=1600&auto=format&fit=crop');">
+        <div class="left">
+          <h2>Selamat Datang di Website Resmi <span style="color:var(--gold)">SEAR ESPORTS</span></h2>
+          <p class="muted">Bersatu, berlatih, dan bertanding — kami adalah tim esports yang berkomitmen untuk prestasi dan komunitas.</p>
+          <div class="actions" style="margin-top:18px">
+            <a href="https://formsecretareanew.netlify.app/" class="btn primary">Daftar Sekarang</a>
+            <a href="https://formsecretareanew.netlify.app/" class="btn ghost">Tentang Kami</a>
+          </div>
+
+          <div style="margin-top:16px;font-size:13px;color:var(--muted)">
+            <strong>Next match:</strong> Friendly vs RivalTeam — <span class="small">TBD</span>
+          </div>
+        </div>
+
+        <div class="right" aria-hidden="true">
+          <div class="banner-card reveal">
+            <img src="sear.png" alt="team banner" />
+            <div style="padding-top:10px">
+              <p class="small muted">SEAR | Ranked Scrims</p>
+              <h4 style="margin:6px 0;color:var(--gold)">Rising Through the Ranks</h4>
+              <p class="muted small">Jadwal latihan & lineup resmi tersedia di halaman Team.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="block">
+        <div class="section-title">
+          <h3>About SEAR</h3>
+          <p class="muted">Sejarah, visi, dan nilai-nilai tim</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h4 style="color:var(--gold)">Sejarah Singkat</h4>
+            <p class="muted">SEAR ESPORTS didirikan untuk menyatukan pemain berbakat dan mencetak prestasi kompetitif. Kami memprioritaskan disiplin, skill, dan kerja tim.</p>
+          </div>
+
+          <div class="about-card reveal">
+            <h4 style="color:var(--gold)">Misi & Visi</h4>
+            <p class="muted">Misi kami adalah membangun tim profesional yang berkelanjutan dan komunitas yang suportif. Visi: menjadi tim terdepan di ranah regional.</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="about-card reveal">
+          <h4 style="color:var(--gold)">Pendiri & Leadership</h4>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+            <div class="member" style="width:100%;max-width:420px">
+              <div class="avatar">JC</div>
+              <div>
+                <h5>Jessyca</h5>
+                <p class="muted small">Founder — Visioner dan penggerak utama SEAR.</p>
+              </div>
+            </div>
+
+            <div class="member" style="width:100%;max-width:320px">
+              <div class="avatar">LK</div>
+              <div>
+                <h5>Rizky Pra</h5>
+                <p class="muted small">Esport Leadership.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DIVISIONS -->
+      <section id="divisions" class="block">
+        <div class="section-title">
+          <h3>Divisi Game</h3>
+          <p class="muted">Kami berkompetisi di beberapa judul</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card-division reveal">
+            <h4>PUBG MOBILE</h4>
+            <p class="meta">Divisi utama dengan roster kompetitif dan scrim rutin.</p>
+            <p class="muted small" style="margin-top:8px">Prestasi: Top 8 regional, 2024 Invitational.</p>
+          </article>
+
+          <article class="card-division reveal">
+            <h4>MLBB</h4>
+            <p class="meta">Tim mobile MOBA yang fokus pada koordinasi dan strategi map control.</p>
+            <p class="muted small" style="margin-top:8px">Prestasi: Juara lokal 2023.</p>
+          </article>
+
+          <article class="card-division reveal">
+            <h4>ROBLOX</h4>
+            <p class="meta">Divisi kreatif & komunitas, membuat konten dan mini-games.</p>
+            <p class="muted small" style="margin-top:8px">Aktif di event komunitas & collab creators.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- TEAM & STAFF -->
+      <section id="team" class="block">
+        <div class="section-title">
+          <h3>Staff & Roster</h3>
+          <p class="muted">Leader, Coach, Admin, serta roster tiap divisi</p>
+        </div>
+
+        <div class="team-grid">
+          <div class="member reveal">
+            <div class="avatar">RP</div>
+            <div>
+              <h5>Rizky Prasetyo</h5>
+              <p class="muted small">Esports Leadership PUBG </p>
+            </div>
+          </div>
+
+          <div class="member reveal">
+            <div class="avatar">AL</div>
+            <div>
+              <h5>Open Recruitment.</h5>
+              <p class="muted small">Esport Leadership MLBB Division</p>
+            </div>
+          </div>
+
+          <div class="member reveal">
+            <div class="avatar">AD</div>
+            <div>
+              <h5>Catta</h5>
+              <p class="muted small"> Leadership Roblox</p>
+            </div>
+          </div>
+
+          <div class="member reveal">
+            <div class="avatar">PM</div>
+            <div>
+              <h5>Player PUBG</h5>
+              <p class="muted small">Roster utama — Main Entry</p>
+            </div>
+          </div>
+
+          <div class="member reveal">
+            <div class="avatar">ML</div>
+            <div>
+              <h5>Player MLBB</h5>
+              <p class="muted small">Mid / Gold Lane</p>
+            </div>
+          </div>
+
+          <div class="member reveal">
+            <div class="avatar">RB</div>
+            <div>
+              <h5>Player Roblox</h5>
+              <p class="muted small">Creative Lead</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news" class="block">
+        <div class="section-title">
+          <h3>Berita & Update</h3>
+          <p class="muted">Kabar pertandingan, rekrutmen, dan pengumuman resmi</p>
+        </div>
+
+        <div class="news-list">
+          <article class="news-item reveal">
+            <h4>SEAR Juara Friendly Cup</h4>
+            <p class="muted small">20 Sep 2025 — SEAR berhasil memenangkan Friendly Cup melawan rival lokal dengan skor 3-1.</p>
+          </article>
+
+          <article class="news-item reveal">
+            <h4>Open Recruitment PUBG Mobile</h4>
+            <p class="muted small">10 Sep 2025 — Open recruitment dibuka untuk posisi entry fragger & support.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- REGISTER -->
+      <section id="register" class="block">
+        <div class="section-title">
+          <h3>Pendaftaran Anggota</h3>
+          <p class="muted">Isi formulir pendaftaran resmi untuk bergabung dengan SEAR</p>
+        </div>
+
+        <div class="about-card reveal">
+          <p class="muted">Klik tombol di bawah untuk membuka link pendaftaran.</p>
+
+          <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+            <a id="btnRegisterExternal" class="btn primary" href="https://formsecretareanew.netlify.app/">Daftar Sekarang</a>
+            <a class="btn ghost" href="https://api.whatsapp.com/send/?phone=%2B6281361094715&text=Halo%2C%20saya%20mau%20daftar%20Esport%20Leadership%20MLBB.&type=phone_number&app_absent=0
+">Hubungi Panitia</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="block">
+        <div class="section-title">
+          <h3>Kontak</h3>
+          <p class="muted">Kontak resmi SEAR untuk sponsorship, kolaborasi, dan info lainnya</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="form reveal">
+            <label class="small muted">Nama</label>
+            <input type="text" placeholder="Nama lengkap" />
+            <label class="small muted">Email</label>
+            <input type="email" placeholder="email@contoh.com" />
+            <label class="small muted">Pesan</label>
+            <textarea rows="4" placeholder="Tulis pesan..."></textarea>
+            <div style="margin-top:10px;display:flex;gap:8px">
+             <button class="btn primary"
+  onclick="window.location.href='mailto:rizky456prasetyo@gmail.com?subject=Kerja%20Sama%20%2F%20Sponsorship%20dan%20Informasi&body=Halo%20Admin%2C%20saya%20ingin%20menanyakan%20tentang%20sponsorship%2C%20kolaborasi%2C%20atau%20informasi%20lainnya.'">
+  Kirim
+</button>
+              <a class="btn ghost" href="mailto:rizky456prasetyo@gmail.com?subject=Pendaftaran%20Esport%20Leadership&body=Halo%2C%20saya%20ingin%20mendaftar%20sebagai%20Esport%20Leadership%20MLBB">Email Langsung</a>
+            </div>
+          </div>
+
+          <div class="about-card reveal">
+            <h4 style="color:var(--gold)">Alamat & Social</h4>
+            <p class="muted small">Instagram: @searesports • TikTok: @searesports • YouTube: SEAR Official</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        © 2025 SEAR ESPORTS • All Rights Reserved • Designed with care
+      </footer>
+    </main>
+
+    <script>
+      /* =========================
+         JavaScript: interactivity
+         - Mobile menu
+         - Scroll reveal
+         - Register link variable
+         ========================= */
+
+      // Replace this with your actual pendaftaran link later
+      const REG_LINK = 'https://formsecretareanew.netlify.app/';
+      document.getElementById('btnRegisterExternal').href = REG_LINK;
+
+      // Mobile menu toggle
+      const btnMenu = document.getElementById('btnMenu');
+      const navLinks = document.getElementById('navLinks');
+      btnMenu.addEventListener('click', ()=>{
+        if(navLinks.style.display==='flex'){
+          navLinks.style.display='none';
+        }else{
+          navLinks.style.display='flex';
+          navLinks.style.flexDirection='column';
+          navLinks.style.position='absolute';
+          navLinks.style.right='18px';
+          navLinks.style.top='70px';
+          navLinks.style.background='linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))';
+          navLinks.style.padding='12px';
+          navLinks.style.borderRadius='12px';
+          navLinks.style.minWidth='180px';
+        }
+      });
+
+      // Close mobile menu on click outside
+      document.addEventListener('click', (e)=>{
+        if(!btnMenu.contains(e.target) && !navLinks.contains(e.target) && window.innerWidth<700){
+          navLinks.style.display='none';
+        }
+      });
+
+      // Scroll reveal
+      const revealEls = document.querySelectorAll('.reveal');
+      const obsOptions = {threshold:0.08};
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, obsOptions);
+      revealEls.forEach(el=>observer.observe(el));
+
+      // Smooth anchor scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          const href = a.getAttribute('href');
+          if(href.length>1){
+            e.preventDefault();
+            const el = document.querySelector(href);
+            if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+            // close mobile menu after click
+            if(window.innerWidth<700) navLinks.style.display='none';
+          }
+        });
+      });
+
+      // Optional: dynamically set year in footer
+      document.querySelector('.site-footer').innerHTML = `© ${new Date().getFullYear()} SEAR ESPORTS • All Rights Reserved • Designed with care`;
+
+      // Placeholder logo: allow user to replace with an image by setting #logoTxt innerHTML to <img>
+      // Example to replace with image: document.getElementById('logoTxt').innerHTML = '<img src="/path/to/logo.png" style="width:100%;height:100%;object-fit:cover;border-radius:8px">'
+    </script>
+  </body>
+</html>
